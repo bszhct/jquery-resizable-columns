@@ -1,25 +1,87 @@
 <!doctype html>
+
 <head>
   <title>jQuery Resizable Columns</title>
   <meta name="description" content="">
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="dist/jquery.resizableColumns.css">
   <link rel="stylesheet" href="demo/demo.css">
+
+  <style>
+    .JColResizer td {
+      border: 1px solid #000;
+    }
+  </style>
 </head>
+
 <body>
   <a href="http://github.com/dobtco/jquery-resizable-columns">
-    <img class="ribbon" src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub">
+    <img class="ribbon" src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"
+      alt="Fork me on GitHub">
   </a>
 
   <div class="container">
     <div class="page-header">
-    	<h1>
-    		jQuery Resizable Columns
-    		<small>Demo</small>
-    	</h1>
-	</div>
+      <h1>
+        jQuery Resizable Columns
+        <small>Demo</small>
+      </h1>
+    </div>
 
     <blockquote><em>Grab the column borders and drag 'em! <strong>Bonus: refresh the page.</strong></em></blockquote>
+
+    <table style="width: 100%;border-collapse: collapse;border-spacing: 0" class="JColResizer" hasinit="yes">
+      <tbody>
+        <tr>
+          <td colspan="3" x:str="">内容4</td>
+        </tr>
+        <tr>
+          <td x:str="" class="" style="width: 58.3%;">啊啊啊啊</td>
+          <td colspan="2" x:str="" class="" style="width: 41.7%;">合并2</td>
+        </tr>
+        <tr>
+          <td colspan="2" rowspan="2" x:str="">合并内容，这里的内容很多很多很多很多容很多很多很多很多</td>
+          <td x:str="">内容6</td>
+        </tr>
+        <tr>
+          <td x:str="">内容8</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td rowspan="2">3</td>
+        </tr>
+        <tr>
+          <td>22</td>
+          <td>33</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <br />
+
+    <table width="100%" cellspacing="0" cellpadding="6" id="table_3320657834574696" hasinit="yes" class="JColResizer">
+      <tbody>
+        <tr>
+          <td colspan="2" class="last-x-td" style="width: 728px;">合并内容，这里的内容很多很多很多很多容很多很多很多很多</td>
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+          <td class="tdClass">1</td>
+          <td class="last-x-td">2</td>
+        </tr>
+        <tr>
+          <td class="last-y-td">22</td>
+          <td class="last-x-td last-y-td">33</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <br />
 
     <table class="table table-bordered" data-resizable-columns-id="demo-table-v2">
       <thead>
@@ -83,27 +145,22 @@ $(function(){
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
   <!-- Optional localStorage dependancy, for persistent column width storage -->
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/store.js/1.3.14/store.min.js"></script>
+  <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/store.js/1.3.14/store.min.js"></script> -->
 
   <!-- Plugin -->
   <script src="dist/jquery.resizableColumns.min.js"></script>
   <script>
-    $(function(){
-      $("table").resizableColumns({
-        store: window.store
-      });
+    $(function () {
+      // $("table").resizableColumns({
+      //   store: window.store
+      // });
+      $('table').each(function (i, el) {
+        $(el).resizableColumns();
+      })
     });
   </script>
 
-  <!-- Analytics -->
-  <script type="text/javascript">
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-39205841-4', 'dobtco.github.io');
-    ga('send', 'pageview');
   </script>
 </body>
+
 </html>

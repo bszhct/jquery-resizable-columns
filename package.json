@@ -40,7 +40,7 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "scripts": {
-    "build": "npm install && gulp",
-    "start": "gulp"
+    "build": "gulp",
+    "start": "gulp watch"
   }
 }
